@@ -3,9 +3,6 @@ print("calculadora")
 print("Seleccione una opción:") 
 for operacion in calc:
     print(operacion)
-    for i in range(1, 5):
-        if f"{i}." in operacion:
-            opcion = i
 opcion = int(input("Ingrese su opción: "))
 a = int(input("Ingrese un número: "))
 b = int(input("Ingrese otro número: "))
