@@ -1,0 +1,26 @@
+print("Hola, ¿cómo estás?")
+input("escribe tu respuesta: ")
+a = "bien gracias por preguntar"
+b = "la verdad es que estoy un poco mal"
+if a:
+    print("me alegra saber que estás bien.")
+    print("bueno comencemos con la entrevista.")
+    print("¿Cuál es tu nombre?")
+    input("escribe tu respuesta: ")
+    print("¿Cuántos años tienes?")
+    input("escribe tu respuesta: ")
+    print("cuentame sobre ti")
+    input("escribe tu respuesta: ")
+elif b:
+    print("siento que no estés bien.")
+    print("¿Hay algo en lo que pueda ayudarte?")
+    input("escribe tu respuesta: ")
+    print("si te puedo ayudar, por favor házmelo saber.")
+    input("escribe tu respuesta: ")
+    print("bueno comencemos con la entrevista.")
+    print("¿Cuál es tu nombre?")
+    input("escribe tu respuesta: ")
+    print("¿Cuántos años tienes?")
+    input("escribe tu respuesta: ")
+    print("cuentame sobre ti")
+    input("escribe tu respuesta: ")
