@@ -1,7 +1,13 @@
 import sys
 from typing import List, Dict
-from inventario import agregar_producto, listar_productos, buscar_producto_id, buscar_producto_nombre, actualizar_producto, eliminar_producto
-from facturas import crear_factura, listar_facturas, obtener_factura, actualizar_factura, eliminar_factura, IVA
+from inventario import (
+    agregar_producto, listar_productos, buscar_producto_id,
+    buscar_producto_nombre, actualizar_producto, eliminar_producto
+)
+from facturas import (
+    crear_factura, listar_facturas, obtener_factura,
+    actualizar_factura, eliminar_factura, IVA
+)
 
 def pausa():
     input("\nPresiona ENTER para continuar...")
@@ -20,7 +26,6 @@ def leer_entero(mensaje: str) -> int:
         except ValueError:
             print("Ingresa un número entero válido.")
 
-
 def menu_inventario():
     while True:
         print("\n=== INVENTARIO ===")
@@ -38,7 +43,7 @@ def menu_inventario():
                 precio = leer_flotante("Precio: ")
                 stock = leer_entero("Stock: ")
                 prod = agregar_producto(nombre, precio, stock)
-                print(f"✅ Agregado: {prod}")
+                print("Agregado:", prod)
                 pausa()
             elif opcion == "2":
                 filas = listar_productos()
@@ -119,7 +124,7 @@ def menu_facturas():
                     print("Factura no creada.")
                 else:
                     fac = crear_factura(cliente, items)
-                    print(" Factura creada:", fac["id"])
+                    print("Factura creada:", fac["id"])
                 pausa()
             elif opcion == "2":
                 facs = listar_facturas()
@@ -165,19 +170,50 @@ def menu_facturas():
             print("Error:", e)
             pausa()
 
+def menu_listas():
+    print("\n=== DEMOSTRACIÓN DE LISTAS EN PYTHON ===")
+    lista = ["jose", "maria", "pedro", "miguel", "ivan", "laura"]
+    numeros = [5, 2, 9, 1, 7, 3, 8]
+    print("Lista inicial:", lista)
+    lista.insert(0, "pedro sanchez")
+    lista.append("pedro pablo")
+    lista.extend(["luis", "carlos", "marta"])
+    print("Después de insertar y agregar:", lista)
+    lista.remove("maria")
+    lista.pop(2)
+    print("Después de eliminar:", lista)
+    copia = lista.copy()
+    ordenada = sorted(lista)
+    print("Copia:", copia)
+    print("Ordenada:", ordenada)
+    lista.reverse()
+    print("Invertida:", lista)
+    lista4 = ["a", "a", "b", "c", "a"]
+    print("Cantidad de 'a' en lista4:", lista4.count("a"))
+    combinada = lista + numeros
+    print("Lista combinada:", combinada)
+    print("Primeros 3 nombres:", lista[:3])
+    print("Últimos 2 nombres:", lista[-2:])
+    cuadrados = [x**2 for x in numeros]
+    print("Cuadrados:", cuadrados)
+    pausa()
+
 def main():
     while True:
         print("\n=== SISTEMA DE INVENTARIO Y FACTURACIÓN ===")
         print("1) Inventario")
         print("2) Facturas")
+        print("3) Demostración de listas en Python")
         print("0) Salir")
         opcion = input("Selecciona una opción: ").strip()
         if opcion == "1":
             menu_inventario()
         elif opcion == "2":
             menu_facturas()
+        elif opcion == "3":
+            menu_listas()
         elif opcion == "0":
-            print("¡Hasta luego!")
+            print("Hasta luego")
             sys.exit(0)
         else:
             print("Opción inválida.")

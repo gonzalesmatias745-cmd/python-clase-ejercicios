@@ -9,13 +9,10 @@ IVA = 0.19
 
 
 def _cargar_inventario_idx() -> Dict[int, Dict]:
-    """Carga inventario como índice por id: {id: producto}."""
     inventario = leer_jsonl(ARCHIVO_INVENTARIO)
     return {p["id"]: p for p in inventario}
 
 def _escribir_inventario_desde_idx(idx: Dict[int, Dict]) -> None:
-    """Persiste el inventario a disco desde un índice {id: producto}."""
-    # Mantener un orden estable por id ayuda a depurar
     productos_ordenados = [idx[k] for k in sorted(idx.keys())]
     escribir_jsonl(ARCHIVO_INVENTARIO, productos_ordenados)
 
@@ -40,7 +37,6 @@ def _aplicar_movimiento_stock(idx_inv: Dict[int, Dict], items: List[Dict], signo
         cantidad = int(it["cantidad"])
         prod = idx_inv.get(pid)
         if not prod:
-            # Esto no debería pasar si ya validamos antes
             raise ValueError(f"Producto id {pid} no existe.")
         nuevo_stock = int(prod.get("stock", 0)) + (signo * cantidad)
         if nuevo_stock < 0:
