@@ -1,0 +1,6 @@
+nombre = input("Ingrese su nombre: ") 
+apellido = input("Ingrese su apellido: ")
+archivo = open("datos.txt", "a")
+archivo.write(nombre + "," + apellido + "\n")
+archivo.close()
+print("el archivo ha sido creado exitosamente") 
