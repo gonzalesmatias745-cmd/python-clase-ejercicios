@@ -1,0 +1,1 @@
+{"id": 1, "cliente": "samuel", "fecha": "2025-08-29 07:52:07", "items": [{"id_producto": 1, "nombre": "shampoo", "cantidad": 6, "precio_unitario": 12000.0, "total_linea": 72000.0}], "subtotal": 72000.0, "iva": 13680.0, "total": 85680.0}

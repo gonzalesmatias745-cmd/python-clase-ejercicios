@@ -1,0 +1,1 @@
+{"id": 1, "nombre": "shampoo", "precio": 12000.0, "stock": 8}
